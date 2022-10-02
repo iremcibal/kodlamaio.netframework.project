@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\ICustomerDal.cs" />
+    <Compile Include="Abstract\IEmployeeDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
+    <Compile Include="Concrete\Adonet\AdoCategoryDal.cs" />
+    <Compile Include="Concrete\Adonet\AdoCustomerDal.cs" />
+    <Compile Include="Concrete\Adonet\AdoEmployeeDal.cs" />
     <Compile Include="Concrete\Adonet\AdoProductDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

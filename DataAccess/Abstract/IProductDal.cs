@@ -10,5 +10,9 @@ namespace DataAccess.Abstract
     public interface IProductDal
     {
         List<Product> GetAll();
+        Product GetById(int id);
+        void Delete(Product request);
+        void Update(Product request);
+        void Add(Product request);
     }
 }
