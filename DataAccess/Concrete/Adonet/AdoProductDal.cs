@@ -11,14 +11,16 @@ namespace DataAccess.Concrete.Adonet
 {
     public class AdoProductDal : IProductDal
     {
-        public void Add(Product request)
+        public void Add(Product product)
         {
-            throw new NotImplementedException();
+            int affectedRowCount = DbHelper.CreateWriteConnection("Insert into Products(ProductName,CategoryID) values (@ProductName,@CategoryID)", product);
+            if (affectedRowCount == 0) throw new Exception("No affected row");
         }
 
-        public void Delete(Product request)
+        public void Delete(Product product)
         {
-            throw new NotImplementedException();
+            int affectedRowCount = DbHelper.CreateWriteConnection("Delete from Products where ProductID = @ProductID", product);
+            if (affectedRowCount == 0) throw new Exception("No affected row");
         }
 
         public List<Product> GetAll()
@@ -35,9 +37,18 @@ namespace DataAccess.Concrete.Adonet
             return product;
         }
 
-        public void Update(Product request)
+        public void Update(Product product)
         {
-            throw new NotImplementedException();
+            int affectedRowCount = DbHelper.CreateWriteConnection("Update Products set ProductName = @ProductName, " +
+                " UnitsInStock = @UnitsInStock where productID=@ProductID", product);
+            if (affectedRowCount == 0) throw new Exception("No affected row");
+        }
+
+        public Product GetByName(string name)
+        {
+            Product product = DbHelper.CreateReadCommand<Product>($"select * from Products where ProductName='{name}'").FirstOrDefault();
+
+            return product;
         }
     }
 }

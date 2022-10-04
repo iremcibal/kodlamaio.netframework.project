@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,7 +35,7 @@ namespace Core.DataAccess.Adonet.Helpers
 
                 foreach (PropertyInfo propertyInfo in objectToMap.GetType().GetProperties())
                 {
-                    if (!object.Equals(propertyInfo.Name, DBNull.Value))
+                    if (!Equals(propertyInfo.Name, DBNull.Value))
                     {
                         propertyInfo.SetValue(objectToMap,dataReader[propertyInfo.Name],null);
                     }
@@ -42,6 +43,26 @@ namespace Core.DataAccess.Adonet.Helpers
                 list.Add(objectToMap);
             }
             return list;
+        }
+
+        public static int CreateWriteConnection<T>(string query, T entity) where T:class,IEntity, new()
+        {
+            SqlConnection sqlConnection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True");
+            sqlConnection.Open();
+            SqlCommand command = new SqlCommand(query, sqlConnection);
+
+            foreach (PropertyInfo propertyInfo in entity.GetType().GetProperties())
+            {
+                string parameterName = $"@{propertyInfo.Name}";
+                if (!query.Contains(parameterName)) continue;
+
+                command.Parameters.AddWithValue(parameterName, propertyInfo.GetValue(entity));
+
+            }
+            
+            int affectedRowCount = command.ExecuteNonQuery();
+            sqlConnection.Close();
+            return affectedRowCount; 
         }
     }
 }

@@ -3,6 +3,8 @@ using Business.Abstract;
 using Business.BusinessRules;
 using Business.Concrete;
 using Business.Profiles;
+using Business.Request.Product;
+using Business.Response.Product;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Adonet;
 using System;
@@ -42,8 +44,10 @@ namespace WinFormsUI
 
         private void btnDataReader_Click(object sender, EventArgs e)
         {
-            var result = _productService.GetById(2);
-            Console.WriteLine(result.ID + "  " + result.Name + " " + result.UnitPrice);
+            foreach (ListProductResponse item in _productService.GetAll())
+            {
+                Console.WriteLine(item.ID + " "+ item.Name + " " + item.UnitPrice);
+            } 
 
             //AdoProductDal productDal = new AdoProductDal();
             //foreach (var item in productDal.GetAll())
@@ -68,6 +72,27 @@ namespace WinFormsUI
             //{
             //    Console.WriteLine("Employee : " + item.EmployeeID + " " + item.FirstName + " " + item.LastName); ;
             //}
+        }
+
+        private void btnWriteData_Click(object sender, EventArgs e)
+        {
+            _productService.Add(
+                request: new CreateProductRequest { Name = "Computer", CategoryID = 2 });
+
+        }
+
+        private void btnUpdateData_Click(object sender, EventArgs e)
+        {
+            _productService.Update(
+                request: new UpdateProductRequest { Name = "Computer", UnitsInStock = 5,ID=2 });
+
+        }
+
+        private void btnDeleteData_Click(object sender, EventArgs e)
+        {
+
+            _productService.Delete(
+                request: new DeleteProductRequest { Id = 80 });
         }
     }
 }

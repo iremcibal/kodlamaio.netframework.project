@@ -14,5 +14,6 @@ namespace DataAccess.Abstract
         void Delete(Product request);
         void Update(Product request);
         void Add(Product request);
+        Product GetByName(string name);
     }
 }
