@@ -52,6 +52,7 @@
             this.btnWriteData.TabIndex = 1;
             this.btnWriteData.Text = "btnWriteData";
             this.btnWriteData.UseVisualStyleBackColor = true;
+            this.btnWriteData.Click += new System.EventHandler(this.btnWriteData_Click);
             // 
             // btnUpdateData
             // 

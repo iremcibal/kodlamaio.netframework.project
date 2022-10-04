@@ -14,7 +14,9 @@ namespace Business.Profiles
     {
         public AutoMapperProfiles()
         {
-            CreateMap<CreateProductRequest, Product>();
+            CreateMap<CreateProductRequest, Product>()
+                .ForMember(p=>p.ProductID,config=>config.MapFrom(p=>p.ID))
+                .ForMember(p=>p.ProductName,config=>config.MapFrom(p=>p.Name));
             CreateMap<UpdateProductRequest, Product>()
                 .ForMember(p => p.ProductName, config => config.MapFrom(p => p.Name))
                 .ForMember(p => p.ProductID, config => config.MapFrom(p => p.ID));
