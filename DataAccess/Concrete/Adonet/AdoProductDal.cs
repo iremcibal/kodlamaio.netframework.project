@@ -4,6 +4,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,13 +24,7 @@ namespace DataAccess.Concrete.Adonet
             if (affectedRowCount == 0) throw new Exception("No affected row");
         }
 
-        public List<Product> GetAll()
-        {
-            List<Product> products = DbHelper.CreateReadCommand<Product>("select * from Products");
-
-            return products;
-        }
-
+        
         public Product GetById(int id)
         {
             Product product = DbHelper.CreateReadCommand<Product>($"select * from Products where productId ='{id}'").FirstOrDefault();
@@ -49,6 +44,20 @@ namespace DataAccess.Concrete.Adonet
             Product product = DbHelper.CreateReadCommand<Product>($"select * from Products where ProductName='{name}'").FirstOrDefault();
 
             return product;
+        }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        {
+            List<Product> products = DbHelper.CreateReadCommand<Product>("select * from Products");
+
+            return filter != null ? products = products.AsQueryable().Where(filter).ToList(): products;
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            List<Product> products = DbHelper.CreateReadCommand<Product>("select * from Products");
+
+            return filter != null ?  products.AsQueryable().FirstOrDefault(filter) : products.FirstOrDefault();
         }
     }
 }

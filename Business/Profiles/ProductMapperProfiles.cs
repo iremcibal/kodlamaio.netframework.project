@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Business.Profiles
 {
-    public class AutoMapperProfiles : Profile
+    public class ProductMapperProfiles : Profile
     {
-        public AutoMapperProfiles()
+        public ProductMapperProfiles()
         {
             CreateMap<CreateProductRequest, Product>()
                 .ForMember(p=>p.ProductID,config=>config.MapFrom(p=>p.ID))

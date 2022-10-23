@@ -48,7 +48,7 @@ namespace Business.Concrete
 
         public GetProductResponse GetById(int id)
         {
-            var result = _productDal.GetById(id);
+            var result = _productDal.Get(p => p.ProductID == id);
             //_productBusinessRules.
             var response = _mapper.Map<GetProductResponse>(result);
             return response;

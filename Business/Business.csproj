@@ -36,6 +36,9 @@
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.9.5.4\lib\net461\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -159,21 +162,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IProductService.cs" />
+    <Compile Include="BusinessRules\CategoryBusinessRules.cs" />
     <Compile Include="BusinessRules\ProductBusinessRules.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
-    <Compile Include="Profiles\AutoMapperProfiles.cs" />
+    <Compile Include="Profiles\CategoryMapperProfiles.cs" />
+    <Compile Include="Profiles\ProductMapperProfiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\Category\CreateCategoryRequest.cs" />
+    <Compile Include="Request\Category\DeleteCategoryRequest.cs" />
+    <Compile Include="Request\Category\UpdateProductRequest.cs" />
     <Compile Include="Request\Product\CreateProductRequest.cs" />
     <Compile Include="Request\Product\DeleteProductRequest.cs" />
     <Compile Include="Request\Product\UpdateProductRequest.cs" />
+    <Compile Include="Response\Category\GetCategoryResponse.cs" />
+    <Compile Include="Response\Category\ListCategoryResponse.cs" />
     <Compile Include="Response\Product\GetProductResponse.cs" />
     <Compile Include="Response\Product\ListProductResponse.cs" />
+    <Compile Include="ValidationResolvers\FluentValidation\Category\CreateCategoryRequestValidator.cs" />
+    <Compile Include="ValidationTool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{AD54E3B4-7881-4FB3-9ED8-EF85E37FA946}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{FF19400C-D2AC-4916-8FB6-E6AC2A723439}</Project>
       <Name>DataAccess</Name>

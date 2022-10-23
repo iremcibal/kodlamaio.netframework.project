@@ -29,7 +29,7 @@ namespace WinFormsUI
             //ICategoryDal categoryDal = new AdoCategoryDal();
             //ICustomerDal customerDal = new AdoCustomerDal();
             IProductDal productDal = new AdoProductDal(); 
-            AutoMapperProfiles autoMapperProfiles = new AutoMapperProfiles();
+            ProductMapperProfiles autoMapperProfiles = new ProductMapperProfiles();
             var mapperConfig = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(autoMapperProfiles);

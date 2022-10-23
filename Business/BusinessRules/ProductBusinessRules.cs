@@ -35,13 +35,13 @@ namespace Business.BusinessRules
 
         public void CheckIfProductExist(int productId)
         {
-            Product product = _productDal.GetById(productId);
+            Product product = _productDal.Get(p => p.ProductID == productId);
             CheckIfProductExist(product);
         }
 
         public void CheckIfProductNameExist(string productName)
         {
-            Product product = _productDal.GetByName(productName);
+            Product product = _productDal.Get(p => p.ProductName == productName);
             CheckIfProductNotExist(product);
         }
 

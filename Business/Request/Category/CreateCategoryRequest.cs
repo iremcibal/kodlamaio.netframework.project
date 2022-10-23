@@ -1,16 +1,15 @@
-﻿using Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Business.Request.Category
 {
-    public class Category : IEntity
+    public class CreateCategoryRequest
     {
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
     }
