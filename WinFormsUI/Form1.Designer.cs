@@ -46,13 +46,13 @@
             // 
             // btnWriteData
             // 
-            this.btnWriteData.Location = new System.Drawing.Point(383, 27);
-            this.btnWriteData.Name = "btnWriteData";
-            this.btnWriteData.Size = new System.Drawing.Size(203, 66);
-            this.btnWriteData.TabIndex = 1;
-            this.btnWriteData.Text = "btnWriteData";
-            this.btnWriteData.UseVisualStyleBackColor = true;
-            this.btnWriteData.Click += new System.EventHandler(this.btnWriteData_Click);
+            //this.btnWriteData.Location = new System.Drawing.Point(383, 27);
+            //this.btnWriteData.Name = "btnWriteData";
+            //this.btnWriteData.Size = new System.Drawing.Size(203, 66);
+            //this.btnWriteData.TabIndex = 1;
+            //this.btnWriteData.Text = "btnWriteData";
+            //this.btnWriteData.UseVisualStyleBackColor = true;
+            //this.btnWriteData.Click += new System.EventHandler(this.btnWriteData_Click);
             // 
             // btnUpdateData
             // 

@@ -74,12 +74,12 @@ namespace WinFormsUI
             //}
         }
 
-        private void btnWriteData_Click(object sender, EventArgs e)
-        {
-            _productService.Add(
-                request: new CreateProductRequest { Name = "Computer", CategoryID = 2 });
+        //private void btnWriteData_Click(object sender, EventArgs e)
+        //{
+        //    _productService.Add(
+        //        request: new CreateProductRequest { Name = "Computer", CategoryID = 2 });
 
-        }
+        //}
 
         private void btnUpdateData_Click(object sender, EventArgs e)
         {

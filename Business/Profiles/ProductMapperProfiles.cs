@@ -15,7 +15,6 @@ namespace Business.Profiles
         public ProductMapperProfiles()
         {
             CreateMap<CreateProductRequest, Product>()
-                .ForMember(p=>p.ProductID,config=>config.MapFrom(p=>p.ID))
                 .ForMember(p=>p.ProductName,config=>config.MapFrom(p=>p.Name));
             CreateMap<UpdateProductRequest, Product>()
                 .ForMember(p => p.ProductName, config => config.MapFrom(p => p.Name))

@@ -9,12 +9,12 @@ namespace Entities.Concrete
 {
     public class Product : IEntity
     {
-        public int ProductID { get; set; }
+        public string ProductID { get; set; }
         public string ProductName { get; set; }
         //public int SupplierID { get; set; }
-        public int CategoryID { get; set; }
-        public int UnitsInStock { get; set; }
-        public decimal UnitPrice { get; set; }
+        public string CategoryID { get; set; }
+        public string UnitsInStock { get; set; }
+        public string UnitPrice { get; set; }
 
     }
 }

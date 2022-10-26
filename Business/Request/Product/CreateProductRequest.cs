@@ -8,8 +8,9 @@ namespace Business.Request.Product
 {
     public class CreateProductRequest
     {
-        public int ID { get; set; }
         public string Name { get; set; }
-        public int CategoryID { get; set; }
+        public string CategoryID { get; set; }
+        public string UnitsInStock { get; set; }
+        public string UnitPrice { get; set; }
     }
 }
