@@ -46,7 +46,7 @@ namespace Business.Concrete
             return list;
         }
 
-        public GetProductResponse GetById(string id)
+        public GetProductResponse GetById(int id)
         {
             var result = _productDal.Get(p => p.ProductID == id);
             //_productBusinessRules.

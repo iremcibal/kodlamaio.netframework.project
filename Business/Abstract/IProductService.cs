@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IProductService
     {
         List<ListProductResponse> GetAll();
-        GetProductResponse GetById(string id);
+        GetProductResponse GetById(int id);
         void Add(CreateProductRequest request);  
         void Update(UpdateProductRequest request);
         void Delete(DeleteProductRequest request);

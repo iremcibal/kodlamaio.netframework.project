@@ -64,11 +64,20 @@ namespace WinFormsUI
             _productService.Add(createProductRequest);
 
         }
-
-        private void ProductGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ProductForm_Load(object sender, EventArgs e)
         {
+
             List<ListProductResponse> products = _productService.GetAll();
             ProductGridView.DataSource = products;
         }
+
+        private void productsDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (ProductGridView.SelectedRows.Count <= 0) return;
+            var firstlySelectedRow = ProductGridView.SelectedRows[0];
+            Console.WriteLine(firstlySelectedRow.Cells["Name"].Value);
+        }
+
+        
     }
 }

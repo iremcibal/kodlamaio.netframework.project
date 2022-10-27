@@ -48,7 +48,7 @@ namespace DataAccess.Concrete.Adonet
 
         public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            List<Product> products = DbHelper.CreateReadCommand<Product>("select * from Products");
+            List<Product> products = DbHelper.CreateReadCommand<Product>("select ProductID,ProductName,CategoryID,UnitPrice,UnitsInStock from Products");
 
             return filter != null ? products = products.AsQueryable().Where(filter).ToList(): products;
         }

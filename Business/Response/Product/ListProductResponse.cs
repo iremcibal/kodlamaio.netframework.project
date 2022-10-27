@@ -10,6 +10,8 @@ namespace Business.Response.Product
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public int CategoryID { get; set; }
+        public short UnitsInStock { get; set; }
         public decimal UnitPrice { get; set; }
 
     }

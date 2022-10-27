@@ -33,7 +33,7 @@ namespace Business.BusinessRules
             }
         }
 
-        public void CheckIfProductExist(string productId)
+        public void CheckIfProductExist(int productId)
         {
             Product product = _productDal.Get(p => p.ProductID == productId);
             CheckIfProductExist(product);
