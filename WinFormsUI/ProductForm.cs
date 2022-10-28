@@ -22,6 +22,7 @@ namespace WinFormsUI
     public partial class ProductForm : Form
     {
         IProductService _productService;
+        private ListProductResponse selectedProduct;
         public ProductForm()
         {
             IProductDal _productDal = new AdoProductDal();
@@ -44,11 +45,7 @@ namespace WinFormsUI
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
        
         private void Add_Click(object sender, EventArgs e)
         {
@@ -62,20 +59,49 @@ namespace WinFormsUI
             };
 
             _productService.Add(createProductRequest);
-
+            MessageBox.Show("Ekleme Başarılı", "Sistem");
+            getAll();
         }
         private void ProductForm_Load(object sender, EventArgs e)
         {
+            getAll();
+            
+        }
 
+        private void getAll()
+        {
             List<ListProductResponse> products = _productService.GetAll();
             ProductGridView.DataSource = products;
         }
-
         private void productsDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (ProductGridView.SelectedRows.Count <= 0) return;
             var firstlySelectedRow = ProductGridView.SelectedRows[0];
-            Console.WriteLine(firstlySelectedRow.Cells["Name"].Value);
+           // Console.WriteLine(firstlySelectedRow.Cells["Name"].Value);
+
+
+
+            ProductNameUpdateTb.Text = firstlySelectedRow.Cells["Name"].Value.ToString();
+            CategoryIDUpdateTb.Text = firstlySelectedRow.Cells["CategoryID"].Value.ToString();
+            UnitPriceUpdateTb.Text = firstlySelectedRow.Cells["UnitPrice"].Value.ToString();
+            UnitsInStockUpdateTb.Text = firstlySelectedRow.Cells["UnitsInStock"].Value.ToString();
+
+        }
+
+        private void Update_Click(object sender, EventArgs e)
+        {
+            if (ProductGridView.SelectedRows.Count <= 0) return;
+            UpdateProductRequest updateProductRequest = new UpdateProductRequest()
+            {
+                Name = ProductNameUpdateTb.Text,
+                CategoryID = CategoryIDUpdateTb.Text,
+                UnitPrice = UnitPriceUpdateTb.Text,
+                UnitsInStock = UnitsInStockUpdateTb.Text,
+                ID = int.Parse(ProductGridView.SelectedRows[0].Cells[0].Value.ToString())
+            };
+            _productService.Update(updateProductRequest);
+            MessageBox.Show("Güncelleme Başarılı", "Sistem");
+            getAll();
         }
 
         

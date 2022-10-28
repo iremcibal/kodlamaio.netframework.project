@@ -39,7 +39,7 @@
             this.UnitPrice = new System.Windows.Forms.Label();
             this.CategoryID = new System.Windows.Forms.Label();
             this.ProductName = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.updateArea = new System.Windows.Forms.GroupBox();
             this.Update = new System.Windows.Forms.Button();
             this.UnitsInStockUpdateTb = new System.Windows.Forms.TextBox();
             this.UnitPriceUpdateTb = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).BeginInit();
             this.AddProductArea.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.updateArea.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProductGridView
@@ -151,7 +151,6 @@
             this.CategoryID.Size = new System.Drawing.Size(75, 16);
             this.CategoryID.TabIndex = 2;
             this.CategoryID.Text = "CategoryID";
-            this.CategoryID.Click += new System.EventHandler(this.label3_Click);
             // 
             // ProductName
             // 
@@ -162,23 +161,23 @@
             this.ProductName.TabIndex = 0;
             this.ProductName.Text = "ProductName";
             // 
-            // groupBox1
+            // updateArea
             // 
-            this.groupBox1.Controls.Add(this.Update);
-            this.groupBox1.Controls.Add(this.UnitsInStockUpdateTb);
-            this.groupBox1.Controls.Add(this.UnitPriceUpdateTb);
-            this.groupBox1.Controls.Add(this.CategoryIDUpdateTb);
-            this.groupBox1.Controls.Add(this.ProductNameUpdateTb);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(391, 202);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(365, 268);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Update Product Area";
+            this.updateArea.Controls.Add(this.Update);
+            this.updateArea.Controls.Add(this.UnitsInStockUpdateTb);
+            this.updateArea.Controls.Add(this.UnitPriceUpdateTb);
+            this.updateArea.Controls.Add(this.CategoryIDUpdateTb);
+            this.updateArea.Controls.Add(this.ProductNameUpdateTb);
+            this.updateArea.Controls.Add(this.label1);
+            this.updateArea.Controls.Add(this.label2);
+            this.updateArea.Controls.Add(this.label3);
+            this.updateArea.Controls.Add(this.label4);
+            this.updateArea.Location = new System.Drawing.Point(391, 202);
+            this.updateArea.Name = "updateArea";
+            this.updateArea.Size = new System.Drawing.Size(365, 268);
+            this.updateArea.TabIndex = 19;
+            this.updateArea.TabStop = false;
+            this.updateArea.Text = "Update Product Area";
             // 
             // Update
             // 
@@ -188,6 +187,7 @@
             this.Update.TabIndex = 18;
             this.Update.Text = "Update";
             this.Update.UseVisualStyleBackColor = true;
+            this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
             // UnitsInStockUpdateTb
             // 
@@ -258,7 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 612);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.updateArea);
             this.Controls.Add(this.AddProductArea);
             this.Controls.Add(this.ProductGridView);
             this.Name = "ProductForm";
@@ -267,8 +267,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).EndInit();
             this.AddProductArea.ResumeLayout(false);
             this.AddProductArea.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.updateArea.ResumeLayout(false);
+            this.updateArea.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -286,7 +286,7 @@
         private System.Windows.Forms.TextBox UnitPriceTb;
         private System.Windows.Forms.TextBox CategoryIDTb;
         private System.Windows.Forms.TextBox ProductNameTb;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox updateArea;
         private System.Windows.Forms.Button Update;
         private System.Windows.Forms.TextBox UnitsInStockUpdateTb;
         private System.Windows.Forms.TextBox UnitPriceUpdateTb;

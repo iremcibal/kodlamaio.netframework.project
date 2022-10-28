@@ -57,7 +57,8 @@ namespace Business.Concrete
 
         public void Update(UpdateProductRequest request)
         {
-            Product product = _mapper.Map<Product>(request);
+            Product product = _productDal.Get(c=>c.ProductID == request.ID);
+            if(product!=null)
             _productDal.Update(product);
         }
     }

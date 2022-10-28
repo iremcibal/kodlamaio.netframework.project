@@ -81,12 +81,12 @@ namespace WinFormsUI
 
         //}
 
-        private void btnUpdateData_Click(object sender, EventArgs e)
-        {
-            _productService.Update(
-                request: new UpdateProductRequest { Name = "Computer", UnitsInStock = 5,ID=2 });
+        //private void btnUpdateData_Click(object sender, EventArgs e)
+        //{
+        //    _productService.Update(
+        //        request: new UpdateProductRequest { Name = "Computer", UnitsInStock = 5,ID=2 });
 
-        }
+        //}
 
         private void btnDeleteData_Click(object sender, EventArgs e)
         {

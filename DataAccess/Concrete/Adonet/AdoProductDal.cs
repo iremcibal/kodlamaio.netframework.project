@@ -14,7 +14,7 @@ namespace DataAccess.Concrete.Adonet
     {
         public void Add(Product product)
         {
-            int affectedRowCount = DbHelper.CreateWriteConnection("Insert into Products(ProductName,CategoryID) values (@ProductName,@CategoryID)", product);
+            int affectedRowCount = DbHelper.CreateWriteConnection("Insert into Products(ProductName,CategoryID,UnitPrice,UnitsInStock) values (@ProductName,@CategoryID,@UnitPrice,@UnitsInStock)", product);
             if (affectedRowCount == 0) throw new Exception("No affected row");
         }
 
@@ -34,8 +34,9 @@ namespace DataAccess.Concrete.Adonet
 
         public void Update(Product product)
         {
+
             int affectedRowCount = DbHelper.CreateWriteConnection("Update Products set ProductName = @ProductName, " +
-                " UnitsInStock = @UnitsInStock where productID=@ProductID", product);
+                " UnitsInStock = @UnitsInStock, UnitPrice = @UnitPrice , CategoryID = @CategoryID where ProductID=@ProductID", product);
             if (affectedRowCount == 0) throw new Exception("No affected row");
         }
 

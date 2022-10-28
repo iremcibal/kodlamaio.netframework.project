@@ -10,6 +10,8 @@ namespace Business.Request.Product
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int UnitsInStock { get; set; }
+        public string CategoryID { get; set; }
+        public string UnitsInStock { get; set; }
+        public string UnitPrice { get; set; }
     }
 }
