@@ -1,13 +1,6 @@
-﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entities.Concrete
+﻿namespace Business.Response.Customer
 {
-    public class Customer : IEntity
+    public class GetCustomerResponse
     {
         public string CustomerID { get; set; }
         public string CompanyName { get; set; }
@@ -19,11 +12,5 @@ namespace Entities.Concrete
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
-        public string IdentityNumber { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
-
     }
 }

@@ -35,7 +35,7 @@ namespace Core.DataAccess.Adonet.Helpers
 
                 foreach (PropertyInfo propertyInfo in objectToMap.GetType().GetProperties())
                 {
-                    if (!Equals(propertyInfo.Name, DBNull.Value))
+                    if (!Equals(dataReader[propertyInfo.Name], DBNull.Value))
                     {
                         propertyInfo.SetValue(objectToMap,dataReader[propertyInfo.Name],null);
                     }

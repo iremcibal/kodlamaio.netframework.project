@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Concrete.EntityFramework.Context;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -6,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Abstract
+namespace DataAccess.Concrete.EntityFramework
 {
-    public interface ICustomerDal : IEntityRepository<Customer>
+    public class EfCustomerDal : EfEntityRepositoryBase<Customer, NorthwindContext>
     {
-        
     }
 }

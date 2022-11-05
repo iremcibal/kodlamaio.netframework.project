@@ -35,7 +35,7 @@ namespace Business.Concrete
 
         public void Delete(DeleteProductRequest request)
         {
-            Product product = _mapper.Map<Product>(request);
+            Product product = _productDal.Get(p=>p.ProductID == request.Id);
             _productDal.Delete(product);
         }
 

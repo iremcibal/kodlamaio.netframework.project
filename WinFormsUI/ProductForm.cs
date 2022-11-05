@@ -86,6 +86,11 @@ namespace WinFormsUI
             UnitPriceUpdateTb.Text = firstlySelectedRow.Cells["UnitPrice"].Value.ToString();
             UnitsInStockUpdateTb.Text = firstlySelectedRow.Cells["UnitsInStock"].Value.ToString();
 
+            ProductNameDeleteTb.Text = firstlySelectedRow.Cells["Name"].Value.ToString();
+            CategoryIDDeleteTb.Text = firstlySelectedRow.Cells["CategoryID"].Value.ToString();
+            UnitPriceDeleteTb.Text = firstlySelectedRow.Cells["UnitPrice"].Value.ToString();
+            UnitsInStockDeleteTb.Text = firstlySelectedRow.Cells["UnitsInStock"].Value.ToString();
+
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -104,6 +109,16 @@ namespace WinFormsUI
             getAll();
         }
 
-        
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if(ProductGridView.SelectedRows.Count <= 0) return;
+            DeleteProductRequest deleteProductRequest = new DeleteProductRequest()
+            {
+                Id = int.Parse(ProductGridView.SelectedRows[0].Cells[0].Value.ToString())
+            };
+            _productService.Delete(deleteProductRequest);
+            MessageBox.Show("Silme İşlemi Başarılı", "Sistem");
+            getAll();
+        }
     }
 }

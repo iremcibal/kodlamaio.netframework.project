@@ -161,7 +161,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\CustomerManager.cs" />
+    <Compile Include="Profiles\CustomerMapperProfiles.cs" />
+    <Compile Include="Request\Customer\CreateCustomerRequest.cs" />
+    <Compile Include="Request\Customer\DeleteCustomerRequest.cs" />
+    <Compile Include="Response\Customer\GetCustomerResponse.cs" />
+    <Compile Include="Abstract\ICustomerService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
+    <Compile Include="Response\Customer\ListCustomerResponse.cs" />
+    <Compile Include="Request\Customer\UpdateCustomerRequest.cs" />
     <Compile Include="BusinessRules\CategoryBusinessRules.cs" />
     <Compile Include="BusinessRules\ProductBusinessRules.cs" />
     <Compile Include="Concrete\ProductManager.cs" />

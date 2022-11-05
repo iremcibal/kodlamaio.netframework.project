@@ -165,6 +165,7 @@
     <Compile Include="Concrete\Adonet\AdoProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\Context\NorthwindContext.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCustomerDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

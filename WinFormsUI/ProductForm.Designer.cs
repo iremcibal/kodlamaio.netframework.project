@@ -49,9 +49,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.deleteArea = new System.Windows.Forms.GroupBox();
+            this.Delete = new System.Windows.Forms.Button();
+            this.UnitsInStockDeleteTb = new System.Windows.Forms.TextBox();
+            this.UnitPriceDeleteTb = new System.Windows.Forms.TextBox();
+            this.CategoryIDDeleteTb = new System.Windows.Forms.TextBox();
+            this.ProductNameDeleteTb = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProductGridView)).BeginInit();
             this.AddProductArea.SuspendLayout();
             this.updateArea.SuspendLayout();
+            this.deleteArea.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProductGridView
@@ -65,7 +76,7 @@
             this.ProductGridView.ReadOnly = true;
             this.ProductGridView.RowHeadersWidth = 51;
             this.ProductGridView.RowTemplate.Height = 24;
-            this.ProductGridView.Size = new System.Drawing.Size(1018, 174);
+            this.ProductGridView.Size = new System.Drawing.Size(1126, 172);
             this.ProductGridView.TabIndex = 0;
             this.ProductGridView.SelectionChanged += new System.EventHandler(this.productsDataGridView_SelectionChanged);
             // 
@@ -253,11 +264,104 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "ProductName";
             // 
+            // deleteArea
+            // 
+            this.deleteArea.Controls.Add(this.Delete);
+            this.deleteArea.Controls.Add(this.UnitsInStockDeleteTb);
+            this.deleteArea.Controls.Add(this.UnitPriceDeleteTb);
+            this.deleteArea.Controls.Add(this.CategoryIDDeleteTb);
+            this.deleteArea.Controls.Add(this.ProductNameDeleteTb);
+            this.deleteArea.Controls.Add(this.label5);
+            this.deleteArea.Controls.Add(this.label6);
+            this.deleteArea.Controls.Add(this.label7);
+            this.deleteArea.Controls.Add(this.label8);
+            this.deleteArea.Location = new System.Drawing.Point(772, 202);
+            this.deleteArea.Name = "deleteArea";
+            this.deleteArea.Size = new System.Drawing.Size(365, 268);
+            this.deleteArea.TabIndex = 20;
+            this.deleteArea.TabStop = false;
+            this.deleteArea.Text = "Delete Product Area";
+            // 
+            // Delete
+            // 
+            this.Delete.Location = new System.Drawing.Point(83, 202);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(191, 36);
+            this.Delete.TabIndex = 18;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
+            // UnitsInStockDeleteTb
+            // 
+            this.UnitsInStockDeleteTb.Location = new System.Drawing.Point(175, 149);
+            this.UnitsInStockDeleteTb.Name = "UnitsInStockDeleteTb";
+            this.UnitsInStockDeleteTb.Size = new System.Drawing.Size(149, 22);
+            this.UnitsInStockDeleteTb.TabIndex = 14;
+            // 
+            // UnitPriceDeleteTb
+            // 
+            this.UnitPriceDeleteTb.Location = new System.Drawing.Point(175, 110);
+            this.UnitPriceDeleteTb.Name = "UnitPriceDeleteTb";
+            this.UnitPriceDeleteTb.Size = new System.Drawing.Size(149, 22);
+            this.UnitPriceDeleteTb.TabIndex = 13;
+            // 
+            // CategoryIDDeleteTb
+            // 
+            this.CategoryIDDeleteTb.Location = new System.Drawing.Point(175, 68);
+            this.CategoryIDDeleteTb.Name = "CategoryIDDeleteTb";
+            this.CategoryIDDeleteTb.Size = new System.Drawing.Size(149, 22);
+            this.CategoryIDDeleteTb.TabIndex = 11;
+            // 
+            // ProductNameDeleteTb
+            // 
+            this.ProductNameDeleteTb.Location = new System.Drawing.Point(175, 32);
+            this.ProductNameDeleteTb.Name = "ProductNameDeleteTb";
+            this.ProductNameDeleteTb.Size = new System.Drawing.Size(149, 22);
+            this.ProductNameDeleteTb.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 149);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 16);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "UnitsInStock";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "UnitPrice";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 16);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "CategoryID";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 16);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "ProductName";
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 612);
+            this.ClientSize = new System.Drawing.Size(1150, 516);
+            this.Controls.Add(this.deleteArea);
             this.Controls.Add(this.updateArea);
             this.Controls.Add(this.AddProductArea);
             this.Controls.Add(this.ProductGridView);
@@ -269,6 +373,8 @@
             this.AddProductArea.PerformLayout();
             this.updateArea.ResumeLayout(false);
             this.updateArea.PerformLayout();
+            this.deleteArea.ResumeLayout(false);
+            this.deleteArea.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -296,5 +402,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox deleteArea;
+        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.TextBox UnitsInStockDeleteTb;
+        private System.Windows.Forms.TextBox UnitPriceDeleteTb;
+        private System.Windows.Forms.TextBox CategoryIDDeleteTb;
+        private System.Windows.Forms.TextBox ProductNameDeleteTb;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
