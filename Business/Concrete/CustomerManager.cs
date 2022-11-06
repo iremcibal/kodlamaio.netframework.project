@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Business.BusinessRules;
 using Business.Request.Customer;
 using Business.Response.Customer;
 using DataAccess.Abstract;
@@ -16,15 +17,18 @@ namespace Business.Concrete
     {
         private ICustomerDal _customerDal;
         private IMapper _mapper;
+        private CustomerBusinessRules _businessRules;
 
-        public CustomerManager(ICustomerDal customerDal, IMapper mapper)
+        public CustomerManager(ICustomerDal customerDal, IMapper mapper,CustomerBusinessRules businessRules)
         {
             _customerDal = customerDal;
             _mapper = mapper;
+            _businessRules = businessRules;
         }
 
         public void Add(CreateCustomerRequest request)
         {
+            _businessRules.IsIdentityValid(request.IdentityNumber,request.FirstName,request.LastName,request.BirthDate.Year);
             Customer customer = _mapper.Map<Customer>(request);
             _customerDal.Add(customer);
         }

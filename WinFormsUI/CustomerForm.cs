@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Business.Abstract;
+using Business.Adapters;
+using Business.BusinessRules;
 using Business.Concrete;
 using Business.Profiles;
 using Business.Request.Customer;
@@ -31,9 +33,9 @@ namespace WinFormsUI
             });
 
             IMapper mapper = new Mapper(mapperConfig);
-
+            IIdentityAdapter identityAdapter = new KPSIdentityAdapter();
             _customerService = new
-                CustomerManager(_customerDal, mapper);
+                CustomerManager(_customerDal, mapper, new CustomerBusinessRules(identityAdapter,_customerDal));
 
 
             InitializeComponent();
@@ -60,6 +62,15 @@ namespace WinFormsUI
             UpdatePhoneTb.Text = firstlySelectedRow.Cells["Phone"].Value.ToString();
             UpdateCustomerIdTb.Text = firstlySelectedRow.Cells["CustomerID"].Value.ToString();
 
+
+            DeleteFirstNameTb.Text = firstlySelectedRow.Cells["FirstName"].Value.ToString();
+            DeleteLastNameTb.Text = firstlySelectedRow.Cells["LastName"].Value.ToString();
+            DeleteIdentityNumberTb.Text = firstlySelectedRow.Cells["IdentityNumber"].Value.ToString();
+            DeleteBirthDatePicker.Text = firstlySelectedRow.Cells["BirthDate"].Value.ToString();
+            DeleteCompanyNameTb.Text = firstlySelectedRow.Cells["CompanyName"].Value.ToString();
+            DeleteCountryTb.Text = firstlySelectedRow.Cells["Country"].Value.ToString();
+            DeletePhoneTb.Text = firstlySelectedRow.Cells["Phone"].Value.ToString();
+            DeleteCustomerIdTb.Text = firstlySelectedRow.Cells["CustomerID"].Value.ToString();
         }
 
         private void CustomerForm_Load(object sender, EventArgs e)
@@ -119,6 +130,18 @@ namespace WinFormsUI
             GetAll();
 
 
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (customerDataGridView.SelectedRows.Count <= 0) return;
+            DeleteCustomerRequest deleteCustomerRequest = new DeleteCustomerRequest()
+            {
+                CustomerID = customerDataGridView.SelectedRows[0].Cells[0].Value.ToString(),
+            };
+            _customerService.Delete(deleteCustomerRequest);
+            MessageBox.Show("Müşteri Silindi", "Başarılı");
+            GetAll();
         }
     }
 }

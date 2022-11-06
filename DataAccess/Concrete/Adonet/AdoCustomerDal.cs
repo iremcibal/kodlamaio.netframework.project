@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.Adonet
 
         public void Delete(Customer entity)
         {
-            int affectedRowCount = DbHelper.CreateWriteConnection("Delete from Products where CustomerID = @CustomerID", entity);
+            int affectedRowCount = DbHelper.CreateWriteConnection("Delete from Customers where CustomerID = @CustomerID", entity);
             if (affectedRowCount == 0) throw new Exception("No affected row");
         }
 
@@ -40,8 +40,8 @@ namespace DataAccess.Concrete.Adonet
 
         public void Update(Customer entity)
         {
-            int affectedRowCount = DbHelper.CreateWriteConnection("Update Customers set CompanyName = @CompanyName, " +
-                "  Country= @Country, Phone= @Phone,IdentityNumber = @IdentityNumber," +
+            int affectedRowCount = DbHelper.CreateWriteConnection("Update Customers set CompanyName = @CompanyName," +
+                " Country= @Country, Phone= @Phone,IdentityNumber = @IdentityNumber, " +
                 "FirstName=@FirstName, LastName=@LastName, BirthDate=@BirthDate  where CustomerID=@CustomerID", entity);
             if (affectedRowCount == 0) throw new Exception("No affected row");
         }

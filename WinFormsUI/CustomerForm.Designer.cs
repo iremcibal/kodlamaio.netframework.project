@@ -41,12 +41,12 @@
             this.AddCustomerIdTb = new System.Windows.Forms.TextBox();
             this.CustomerID = new System.Windows.Forms.Label();
             this.AddPhoneTb = new System.Windows.Forms.TextBox();
+            this.AddCountryTb = new System.Windows.Forms.TextBox();
+            this.Country = new System.Windows.Forms.Label();
             this.Phone = new System.Windows.Forms.Label();
             this.Add = new System.Windows.Forms.Button();
             this.AddCompanyNameTb = new System.Windows.Forms.TextBox();
             this.CompanyName = new System.Windows.Forms.Label();
-            this.AddCountryTb = new System.Windows.Forms.TextBox();
-            this.Country = new System.Windows.Forms.Label();
             this.UpdateCustomerArea = new System.Windows.Forms.GroupBox();
             this.UpdateBirthDatePicker = new System.Windows.Forms.DateTimePicker();
             this.UpdateLastNameTb = new System.Windows.Forms.TextBox();
@@ -214,6 +214,22 @@
             this.AddPhoneTb.Size = new System.Drawing.Size(149, 22);
             this.AddPhoneTb.TabIndex = 24;
             // 
+            // AddCountryTb
+            // 
+            this.AddCountryTb.Location = new System.Drawing.Point(191, 71);
+            this.AddCountryTb.Name = "AddCountryTb";
+            this.AddCountryTb.Size = new System.Drawing.Size(149, 22);
+            this.AddCountryTb.TabIndex = 23;
+            // 
+            // Country
+            // 
+            this.Country.AutoSize = true;
+            this.Country.Location = new System.Drawing.Point(22, 74);
+            this.Country.Name = "Country";
+            this.Country.Size = new System.Drawing.Size(52, 16);
+            this.Country.TabIndex = 20;
+            this.Country.Text = "Country";
+            // 
             // Phone
             // 
             this.Phone.AutoSize = true;
@@ -248,22 +264,6 @@
             this.CompanyName.Size = new System.Drawing.Size(102, 16);
             this.CompanyName.TabIndex = 0;
             this.CompanyName.Text = "CompanyName";
-            // 
-            // AddCountryTb
-            // 
-            this.AddCountryTb.Location = new System.Drawing.Point(191, 71);
-            this.AddCountryTb.Name = "AddCountryTb";
-            this.AddCountryTb.Size = new System.Drawing.Size(149, 22);
-            this.AddCountryTb.TabIndex = 23;
-            // 
-            // Country
-            // 
-            this.Country.AutoSize = true;
-            this.Country.Location = new System.Drawing.Point(22, 74);
-            this.Country.Name = "Country";
-            this.Country.Size = new System.Drawing.Size(52, 16);
-            this.Country.TabIndex = 20;
-            this.Country.Text = "Country";
             // 
             // UpdateCustomerArea
             // 
@@ -575,6 +575,7 @@
             this.Delete.TabIndex = 18;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // DeleteCompanyNameTb
             // 
